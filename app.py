@@ -4,8 +4,11 @@ import streamlit.components.v1 as components
 # Streamlitのページ設定
 st.set_page_config(page_title="JavaScript Test")
 
+# ユーザーからの入力を取得
+text = st.text_input("文字を入力")
+
 # JavaScriptコードを含むHTMLを定義
-html_code = """
+html_code = f"""
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +17,7 @@ html_code = """
 <body>
     <script>
         // ローカルストレージにデータを保存
-        localStorage.setItem('キー', '保存する値');
+        localStorage.setItem('キー', '{text}');
         var value = localStorage.getItem('キー');
         console.log(value);
     </script>
